@@ -1,0 +1,146 @@
+﻿@model ProcessScheduling.Models.Equipment
+
+@{
+    ViewBag.Title = "Equipment Details";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Code)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Code)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductionRunTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductionRunTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductionCapacity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductionCapacity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RunCapacity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RunCapacity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstPassYield)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstPassYield)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ChangeOrderTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ChangeOrderTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductionLine)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductionLine)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DownTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DownTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WorkStation.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WorkStation.Name)
+        </dd>
+    </dl>
+</div>
+<p>
+    <a href="@Url.Action("Edit", "Equipments", new { id = Model.Id})" class="btn btn-info btn-sm">Edit</a> |
+    <a href="@Url.Action("Index", "Equipments", new { id = Model.Id})" class="btn btn-default btn-sm">Back to Equipments</a>
+</p>
+<div>
+    <h4>Equipment Categories</h4>
+    <table class="table">
+        <tr>
+            <th>Code</th>
+            <th>Description</th>
+        </tr>
+
+        @foreach (ProcessScheduling.Models.EquipmentCategory item in ViewBag.equipmentcategories)
+        {
+            <tr>
+                <td>
+                    <a href="@Url.Action("Details", "EquipmentCategories", new { id = item.Id})" class="btn btn-default btn-sm">@item.Code</a>
+                </td>
+                <td>
+                    @item.Description
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+<div>
+    <h4>Equipment Specifications</h4>
+    <table class="table">
+        <tr>
+            <th>Type</th>
+            <th>Value</th>
+        </tr>
+
+        @foreach (ProcessScheduling.Models.EquipmentSpecification item in ViewBag.equipmentspecifications)
+        {
+            <tr>
+                <td>
+                    <a href="@Url.Action("Details", "EquipmentSpecifications", new { id = item.Id})" class="btn btn-default btn-sm">@item.Type</a>
+                </td>
+                <td>
+                    @item.Value
+                </td>
+            </tr>
+        }
+    </table>
+</div>

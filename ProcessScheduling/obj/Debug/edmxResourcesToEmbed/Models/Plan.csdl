@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Plan" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="SupplyProPlans" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Plans" EntityType="Plan.Plan" />
+    <EntitySet Name="PlanProducts" EntityType="Plan.PlanProducts" />
+    <AssociationSet Name="PlanPlanProducts" Association="Plan.PlanPlanProducts">
+      <End Role="Plan" EntitySet="Plans" />
+      <End Role="PlanProducts" EntitySet="PlanProducts" />
+    </AssociationSet>
+    <EntitySet Name="Parts" EntityType="Plan.Part" />
+    <EntitySet Name="Materials" EntityType="Plan.Material" />
+    <EntitySet Name="Products" EntityType="Plan.Product" />
+    <AssociationSet Name="ProductPart" Association="Plan.ProductPart">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="Part" EntitySet="Parts" />
+    </AssociationSet>
+    <AssociationSet Name="PartMaterial" Association="Plan.PartMaterial">
+      <End Role="Part" EntitySet="Parts" />
+      <End Role="Material" EntitySet="Materials" />
+    </AssociationSet>
+    <AssociationSet Name="PlanProductsProduct" Association="Plan.PlanProductsProduct">
+      <End Role="PlanProducts" EntitySet="PlanProducts" />
+      <End Role="Product" EntitySet="Products" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Plan">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="PlanProducts" Relationship="Plan.PlanPlanProducts" FromRole="Plan" ToRole="PlanProducts" />
+  </EntityType>
+  <EntityType Name="PlanProducts">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Plan" Relationship="Plan.PlanPlanProducts" FromRole="PlanProducts" ToRole="Plan" />
+    <Property Name="PlanId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Product" Relationship="Plan.PlanProductsProduct" FromRole="PlanProducts" ToRole="Product" />
+  </EntityType>
+  <Association Name="PlanPlanProducts">
+    <End Type="Plan.Plan" Role="Plan" Multiplicity="1" />
+    <End Type="Plan.PlanProducts" Role="PlanProducts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Plan">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PlanProducts">
+        <PropertyRef Name="PlanId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Part">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Code" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Description" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Products" Relationship="Plan.ProductPart" FromRole="Part" ToRole="Product" />
+    <NavigationProperty Name="Materials" Relationship="Plan.PartMaterial" FromRole="Part" ToRole="Material" />
+  </EntityType>
+  <EntityType Name="Material">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Code" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Description" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Parts" Relationship="Plan.PartMaterial" FromRole="Material" ToRole="Part" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Code" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Description" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Parts" Relationship="Plan.ProductPart" FromRole="Product" ToRole="Part" />
+    <NavigationProperty Name="PlanProduct" Relationship="Plan.PlanProductsProduct" FromRole="Product" ToRole="PlanProducts" />
+  </EntityType>
+  <Association Name="ProductPart">
+    <End Type="Plan.Product" Role="Product" Multiplicity="*" />
+    <End Type="Plan.Part" Role="Part" Multiplicity="*" />
+  </Association>
+  <Association Name="PartMaterial">
+    <End Type="Plan.Part" Role="Part" Multiplicity="*" />
+    <End Type="Plan.Material" Role="Material" Multiplicity="*" />
+  </Association>
+  <Association Name="PlanProductsProduct">
+    <End Type="Plan.PlanProducts" Role="PlanProducts" Multiplicity="1" />
+    <End Type="Plan.Product" Role="Product" Multiplicity="1" />
+  </Association>
+</Schema>

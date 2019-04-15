@@ -1,0 +1,66 @@
+﻿@{
+    ViewBag.Title = "Product Details";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>Code</dt>
+        <dd>@ViewBag.product.Code</dd>
+        <dt>Name</dt>
+        <dd>@ViewBag.product.Name</dd>
+        <dt>Description</dt>
+        <dd>@ViewBag.product.Description</dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+<div class="form-horizontal">
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <label class="control-label col-md-2">Part</label>
+    <div class="col-md-10">
+        @Html.DropDownList("PartId", null, htmlAttributes: new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Add Part" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    <h4>Parts List</h4>
+    <table class="table">
+        <tr>
+            <th>Code</th>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+
+        @foreach (var item in ViewBag.productParts)
+        {
+            <tr>
+                <td>
+                    @item.Code
+                </td>
+                <td>
+                    @item.Name
+                </td>
+                <td>
+                    @item.Description
+                </td>
+            </tr>
+        }
+    </table>
+</div>

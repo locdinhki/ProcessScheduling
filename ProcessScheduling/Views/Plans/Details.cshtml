@@ -1,0 +1,74 @@
+﻿@model ProcessScheduling.Models.Plan
+
+@{
+    ViewBag.Title = "Plan Details";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <a href="@Url.Action("Edit", "Plans", new { id = Model.Id})" class="btn btn-info btn-sm">Edit</a> |
+    <a href="@Url.Action("Index", "Plans", new { id = Model.Id})" class="btn btn-default btn-sm">Back to Plans</a>
+</p>
+
+<div>
+    <h4>Plan Products</h4>
+    <table class="table">
+        <tr>
+            <th>Code</th>
+            <th>Name</th>
+            <th>Target</th>
+            <th>Current</th>
+        </tr>
+
+        @foreach (ProcessScheduling.Models.PlanProduct item in ViewBag.planProducts)
+        {
+            <tr>
+                <td>
+                    @item.Product.Code
+                </td>
+                <td>
+                    @item.Product.Name
+                </td>
+                <td>
+                    @item.TargetNumber
+                </td>
+                <td>
+
+                </td>
+            </tr>
+            foreach (ProcessScheduling.Models.Part part in item.Product.Parts)
+            {
+                <tr>
+                    <td>Part ->
+                        @part.Code
+                    </td>
+                    <td>
+                        @part.Name
+                    </td>
+                    <td>
+                        @part.Description
+                    </td>
+                    <td>
+                        @string.Format("{0:0.00}", ProcessScheduling.Utils.Utils.GetTotalUPH(part))
+                    </td>
+                </tr>
+            }
+        }
+    </table>
+</div>
+<div>
+    <a href="@Url.Action("Delete", "Plans", new { id = Model.Id})" class="btn btn-danger btn-sm">Delete @Model.Name</a>
+</div>

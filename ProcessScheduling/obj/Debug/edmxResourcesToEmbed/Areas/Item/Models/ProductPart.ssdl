@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ProductPart.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="ProductPartStoreContainer">
+    <EntitySet Name="Parts" EntityType="ProductPart.Store.Parts" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Materials" EntityType="ProductPart.Store.Materials" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Products" EntityType="ProductPart.Store.Products" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ProductPart" EntityType="ProductPart.Store.ProductPart" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_ProductPart_Product" Association="ProductPart.Store.FK_ProductPart_Product">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="ProductPart" EntitySet="ProductPart" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductPart_Part" Association="ProductPart.Store.FK_ProductPart_Part">
+      <End Role="Part" EntitySet="Parts" />
+      <End Role="ProductPart" EntitySet="ProductPart" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Parts">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Materials">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Products">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="ProductPart">
+    <Key>
+      <PropertyRef Name="Products_Id" />
+      <PropertyRef Name="Parts_Id" />
+    </Key>
+    <Property Name="Products_Id" Type="int" Nullable="false" />
+    <Property Name="Parts_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_ProductPart_Product">
+    <End Role="Product" Type="ProductPart.Store.Products" Multiplicity="1" />
+    <End Role="ProductPart" Type="ProductPart.Store.ProductPart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProductPart">
+        <PropertyRef Name="Products_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductPart_Part">
+    <End Role="ProductPart" Type="ProductPart.Store.ProductPart" Multiplicity="*" />
+    <End Role="Part" Type="ProductPart.Store.Parts" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Part">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProductPart">
+        <PropertyRef Name="Parts_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

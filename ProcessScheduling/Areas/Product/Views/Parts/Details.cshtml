@@ -1,0 +1,43 @@
+﻿@model ProcessScheduling.Models.Part
+
+@{
+    ViewBag.Title = "Part Details";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div class="col-md-12">
+    <hr />
+    <div class="col-md-8">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Code)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Code)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+
+        </dl>
+    </div>
+    <div class="col-md-4">
+        <a href="@Url.Action("Edit", "Parts", new { id = Model.Id})" class="btn btn-info btn-sm">Edit</a> |
+        <a href="@Url.Action("Index", "Parts")" class="btn btn-default btn-sm">Back to Parts</a>
+    </div>
+</div>

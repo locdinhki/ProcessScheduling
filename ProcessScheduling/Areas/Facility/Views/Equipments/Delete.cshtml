@@ -1,0 +1,120 @@
+﻿@model ProcessScheduling.Models.Equipment
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Equipment</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Code)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Code)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CycleTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CycleTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductionRunTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductionRunTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductionCapacity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductionCapacity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RunCapacity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RunCapacity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstPassYield)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstPassYield)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ChangeOrderTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ChangeOrderTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductionLine)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductionLine)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DownTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DownTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WorkStation.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WorkStation.Name)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

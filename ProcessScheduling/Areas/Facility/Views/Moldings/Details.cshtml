@@ -1,0 +1,121 @@
+﻿@model ProcessScheduling.Models.Molding
+
+@{
+    ViewBag.Title = "Molding Details";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Code)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Code)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Desciption)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Desciption)
+        </dd>
+
+        <dt>Part</dt>
+        <dd>
+            <a href="@Url.Action("Details", "Parts", new { area = "Product", id = Model.Id})" class="btn btn-default btn-sm">@Html.DisplayFor(model => model.Part.Code)</a>
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <a href="@Url.Action("Edit", "Moldings", new { id = Model.Id})" class="btn btn-info btn-sm">Edit</a> |
+    <a href="@Url.Action("Index", "Moldings", new { id = Model.Id})" class="btn btn-default btn-sm">Back to Moldings</a>
+</p>
+
+<div>
+    <h4>Equipment Categories</h4>
+    <table class="table">
+        <tr>
+            <th>Code</th>
+            <th>Description</th>
+        </tr>
+
+        @foreach (ProcessScheduling.Models.EquipmentCategory item in ViewBag.equipmentcategories)
+        {
+        <tr>
+            <td>
+                <a href="@Url.Action("Details", "EquipmentCategories", new { id = item.Id})" class="btn btn-default btn-sm">@item.Code</a>
+            </td>
+            <td>
+                @item.Description
+            </td>
+        </tr>
+        }
+    </table>
+</div>
+<div>
+    <h4>Equipment Specifications</h4>
+    <table class="table">
+        <tr>
+            <th>Type</th>
+            <th>Value</th>
+        </tr>
+
+        @foreach (ProcessScheduling.Models.EquipmentSpecification item in ViewBag.equipmentspecifications)
+        {
+        <tr>
+            <td>
+                <a href="@Url.Action(" Details", "EquipmentSpecifications" , new { id=item.Id})" class="btn btn-default btn-sm">@item.Type</a>
+            </td>
+            <td>
+                @item.Value
+            </td>
+        </tr>
+        }
+    </table>
+</div>
+<div>
+    <h4>Equipments</h4>
+    <table class="table">
+        <tr>
+            <th>Code</th>
+            <th>Name</th>
+            <th>Cycle Time</th>
+            <th>UPH</th>
+        </tr>
+
+        @foreach (ProcessScheduling.Models.Equipment item in ViewBag.equipments)
+        {
+            <tr>
+                <td>
+                    <a href="@Url.Action("Details", "EquipmentSpecifications", new { id = item.Id})" class="btn btn-default btn-sm">@item.Code</a>
+                </td>
+                <td>
+                    @item.Name
+                </td>
+                <td>
+                    @string.Format("{0:0.00}", ProcessScheduling.Utils.Utils.GetCycleTime(item))
+                </td>
+                <td>
+                    @string.Format("{0:0.00}", ProcessScheduling.Utils.Utils.GetUPH(item))
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+<div>
+    <a href="@Url.Action("Delete", "Moldings", new { id = Model.Id})" class="btn btn-danger btn-sm">Delete @Model.Name</a>
+</div>

@@ -1,0 +1,223 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SupplyModelStoreContainer" CdmEntityContainer="SupplyEntities">
+    <EntitySetMapping Name="Companies">
+      <EntityTypeMapping TypeName="IsTypeOf(SupplyModel.Company)">
+        <MappingFragment StoreEntitySet="Companies">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CompanyContacts">
+      <EntityTypeMapping TypeName="IsTypeOf(SupplyModel.CompanyContact)">
+        <MappingFragment StoreEntitySet="CompanyContacts">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Materials">
+      <EntityTypeMapping TypeName="IsTypeOf(SupplyModel.Material)">
+        <MappingFragment StoreEntitySet="Materials">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Parts">
+      <EntityTypeMapping TypeName="IsTypeOf(SupplyModel.Part)">
+        <MappingFragment StoreEntitySet="Parts">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Plans">
+      <EntityTypeMapping TypeName="IsTypeOf(SupplyModel.Plan)">
+        <MappingFragment StoreEntitySet="Plans">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="IsTypeOf(SupplyModel.Product)">
+        <MappingFragment StoreEntitySet="Products">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Lines">
+      <EntityTypeMapping TypeName="IsTypeOf(SupplyModel.Line)">
+        <MappingFragment StoreEntitySet="Lines">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WorkStations">
+      <EntityTypeMapping TypeName="IsTypeOf(SupplyModel.WorkStation)">
+        <MappingFragment StoreEntitySet="WorkStations">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="LineId" ColumnName="LineId" />
+          <ScalarProperty Name="WorkStationTypeId" ColumnName="WorkStationTypeId" />
+          <ScalarProperty Name="PhaseNumber" ColumnName="PhaseNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Equipments">
+      <EntityTypeMapping TypeName="IsTypeOf(SupplyModel.Equipment)">
+        <MappingFragment StoreEntitySet="Equipments">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ProductionRunTime" ColumnName="ProductionRunTime" />
+          <ScalarProperty Name="ProductionCapacity" ColumnName="ProductionCapacity" />
+          <ScalarProperty Name="RunCapacity" ColumnName="RunCapacity" />
+          <ScalarProperty Name="FirstPassYield" ColumnName="FirstPassYield" />
+          <ScalarProperty Name="ChangeOrderTime" ColumnName="ChangeOrderTime" />
+          <ScalarProperty Name="ProductionLine" ColumnName="ProductionLine" />
+          <ScalarProperty Name="DownTime" ColumnName="DownTime" />
+          <ScalarProperty Name="OperatorCount" ColumnName="OperatorCount" />
+          <ScalarProperty Name="WorkStationId" ColumnName="WorkStationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PlanProducts">
+      <EntityTypeMapping TypeName="IsTypeOf(SupplyModel.PlanProduct)">
+        <MappingFragment StoreEntitySet="PlanProducts">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PlanId" ColumnName="PlanId" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="TargetNumber" ColumnName="TargetNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WorkStationTypes">
+      <EntityTypeMapping TypeName="IsTypeOf(SupplyModel.WorkStationType)">
+        <MappingFragment StoreEntitySet="WorkStationTypes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Moldings">
+      <EntityTypeMapping TypeName="IsTypeOf(SupplyModel.Molding)">
+        <MappingFragment StoreEntitySet="Moldings">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PartId" ColumnName="PartId" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Desciption" ColumnName="Desciption" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EquipmentSpecifications">
+      <EntityTypeMapping TypeName="IsTypeOf(SupplyModel.EquipmentSpecification)">
+        <MappingFragment StoreEntitySet="EquipmentSpecifications">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EquipmentCategories">
+      <EntityTypeMapping TypeName="IsTypeOf(SupplyModel.EquipmentCategory)">
+        <MappingFragment StoreEntitySet="EquipmentCategories">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orders">
+      <EntityTypeMapping TypeName="IsTypeOf(SupplyModel.Order)">
+        <MappingFragment StoreEntitySet="Orders">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderSections">
+      <EntityTypeMapping TypeName="IsTypeOf(SupplyModel.OrderSection)">
+        <MappingFragment StoreEntitySet="OrderSections">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="ScheduleDate" ColumnName="ScheduleDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="PartMaterial" TypeName="SupplyModel.PartMaterial" StoreEntitySet="PartMaterial">
+      <EndProperty Name="Materials">
+        <ScalarProperty Name="Id" ColumnName="Materials_Id" />
+      </EndProperty>
+      <EndProperty Name="Parts">
+        <ScalarProperty Name="Id" ColumnName="Parts_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ProductPart" TypeName="SupplyModel.ProductPart" StoreEntitySet="ProductPart">
+      <EndProperty Name="Parts">
+        <ScalarProperty Name="Id" ColumnName="Parts_Id" />
+      </EndProperty>
+      <EndProperty Name="Products">
+        <ScalarProperty Name="Id" ColumnName="Products_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="MoldingEquipmentSpecification" TypeName="SupplyModel.MoldingEquipmentSpecification" StoreEntitySet="MoldingEquipmentSpecification">
+      <EndProperty Name="Molding">
+        <ScalarProperty Name="Id" ColumnName="Moldings_Id" />
+      </EndProperty>
+      <EndProperty Name="EquipmentSpecification">
+        <ScalarProperty Name="Id" ColumnName="EquipmentSpecifications_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="EquipmentEquipmentCategory" TypeName="SupplyModel.EquipmentEquipmentCategory" StoreEntitySet="EquipmentEquipmentCategory">
+      <EndProperty Name="Equipment">
+        <ScalarProperty Name="Id" ColumnName="Equipments_Id" />
+      </EndProperty>
+      <EndProperty Name="EquipmentCategory">
+        <ScalarProperty Name="Id" ColumnName="EquipmentCategories_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="MoldingEquipmentCategory" TypeName="SupplyModel.MoldingEquipmentCategory" StoreEntitySet="MoldingEquipmentCategory">
+      <EndProperty Name="Molding">
+        <ScalarProperty Name="Id" ColumnName="Moldings_Id" />
+      </EndProperty>
+      <EndProperty Name="EquipmentCategory">
+        <ScalarProperty Name="Id" ColumnName="EquipmentCategories_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="EquipmentEquipmentSpecification" TypeName="SupplyModel.EquipmentEquipmentSpecification" StoreEntitySet="EquipmentEquipmentSpecification">
+      <EndProperty Name="Equipment">
+        <ScalarProperty Name="Id" ColumnName="Equipments_Id" />
+      </EndProperty>
+      <EndProperty Name="EquipmentSpecification">
+        <ScalarProperty Name="Id" ColumnName="EquipmentSpecifications_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

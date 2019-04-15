@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="21ad86fb6ce143cea8641dc311ec6de5" Name="Scheduling" ZoomLevel="95">
+        <EntityTypeShape EntityType="SupplyModel.Company" Width="1.5" PointX="1" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="SupplyModel.CompanyContact" Width="1.875" PointX="3.125" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="SupplyModel.Material" Width="1.5" PointX="1" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SupplyModel.Part" Width="1.5" PointX="3.125" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SupplyModel.Plan" Width="1.5" PointX="9.5" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SupplyModel.Product" Width="1.5" PointX="5.375" PointY="0.875" IsExpanded="true" />
+        <AssociationConnector Association="SupplyModel.FK_CompanyCompanyContact" ManuallyRouted="false" />
+        <AssociationConnector Association="SupplyModel.PartMaterial" ManuallyRouted="false" />
+        <AssociationConnector Association="SupplyModel.ProductPart" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="SupplyModel.Line" Width="1.5" PointX="1" PointY="6.75" />
+        <EntityTypeShape EntityType="SupplyModel.WorkStation" Width="1.5" PointX="3.125" PointY="6.75" />
+        <EntityTypeShape EntityType="SupplyModel.Equipment" Width="2.5" PointX="6.375" PointY="6.75" />
+        <AssociationConnector Association="SupplyModel.LineWorkStation" />
+        <AssociationConnector Association="SupplyModel.WorkStationEquipment" />
+        <EntityTypeShape EntityType="SupplyModel.PlanProduct" Width="1.5" PointX="7.375" PointY="0.875" />
+        <AssociationConnector Association="SupplyModel.PlanPlanProduct" />
+        <EntityTypeShape EntityType="SupplyModel.WorkStationType" Width="1.5" PointX="1" PointY="8.875" />
+        <AssociationConnector Association="SupplyModel.WorkStationTypeWorkStation" />
+        <AssociationConnector Association="SupplyModel.PlanProductProduct" />
+        <EntityTypeShape EntityType="SupplyModel.Molding" Width="1.5" PointX="1.625" PointY="3.875" />
+        <AssociationConnector Association="SupplyModel.PartMolding" />
+        <EntityTypeShape EntityType="SupplyModel.EquipmentSpecification" Width="2" PointX="3.875" PointY="3.875" />
+        <EntityTypeShape EntityType="SupplyModel.EquipmentCategory" Width="2.125" PointX="6.375" PointY="3.875" />
+        <AssociationConnector Association="SupplyModel.MoldingEquipmentSpecification" />
+        <AssociationConnector Association="SupplyModel.EquipmentEquipmentCategory" />
+        <AssociationConnector Association="SupplyModel.MoldingEquipmentCategory" />
+        <AssociationConnector Association="SupplyModel.EquipmentEquipmentSpecification" />
+        <EntityTypeShape EntityType="SupplyModel.Order" Width="1.5" PointX="1" PointY="13.75" />
+        <AssociationConnector Association="SupplyModel.CompanyOrder" />
+        <EntityTypeShape EntityType="SupplyModel.OrderSection" Width="1.5" PointX="3.125" PointY="13.75" />
+        <AssociationConnector Association="SupplyModel.OrderOrderSection" />
+        <AssociationConnector Association="SupplyModel.ProductOrderSection" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

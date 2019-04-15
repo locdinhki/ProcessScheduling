@@ -1,0 +1,1248 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SupplyModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="SupplyModelStoreContainer">
+    <EntitySet Name="Companies" EntityType="SupplyModel.Store.Companies" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CompanyContacts" EntityType="SupplyModel.Store.CompanyContacts" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Materials" EntityType="SupplyModel.Store.Materials" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Parts" EntityType="SupplyModel.Store.Parts" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Plans" EntityType="SupplyModel.Store.Plans" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Products" EntityType="SupplyModel.Store.Products" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Lines" EntityType="SupplyModel.Store.Lines" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="WorkStations" EntityType="SupplyModel.Store.WorkStations" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Equipments" EntityType="SupplyModel.Store.Equipments" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PlanProducts" EntityType="SupplyModel.Store.PlanProducts" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="WorkStationTypes" EntityType="SupplyModel.Store.WorkStationTypes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Moldings" EntityType="SupplyModel.Store.Moldings" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EquipmentSpecifications" EntityType="SupplyModel.Store.EquipmentSpecifications" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EquipmentCategories" EntityType="SupplyModel.Store.EquipmentCategories" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Orders" EntityType="SupplyModel.Store.Orders" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="OrderSections" EntityType="SupplyModel.Store.OrderSections" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PartMaterial" EntityType="SupplyModel.Store.PartMaterial" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ProductPart" EntityType="SupplyModel.Store.ProductPart" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MoldingEquipmentSpecification" EntityType="SupplyModel.Store.MoldingEquipmentSpecification" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EquipmentEquipmentCategory" EntityType="SupplyModel.Store.EquipmentEquipmentCategory" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MoldingEquipmentCategory" EntityType="SupplyModel.Store.MoldingEquipmentCategory" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EquipmentEquipmentSpecification" EntityType="SupplyModel.Store.EquipmentEquipmentSpecification" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_CompanyCompanyContact" Association="SupplyModel.Store.FK_CompanyCompanyContact">
+      <End Role="Companies" EntitySet="Companies" />
+      <End Role="CompanyContacts" EntitySet="CompanyContacts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PartMaterial_Materials" Association="SupplyModel.Store.FK_PartMaterial_Materials">
+      <End Role="Materials" EntitySet="Materials" />
+      <End Role="PartMaterial" EntitySet="PartMaterial" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PartMaterial_Parts" Association="SupplyModel.Store.FK_PartMaterial_Parts">
+      <End Role="Parts" EntitySet="Parts" />
+      <End Role="PartMaterial" EntitySet="PartMaterial" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductPart_Parts" Association="SupplyModel.Store.FK_ProductPart_Parts">
+      <End Role="Parts" EntitySet="Parts" />
+      <End Role="ProductPart" EntitySet="ProductPart" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductPart_Products" Association="SupplyModel.Store.FK_ProductPart_Products">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="ProductPart" EntitySet="ProductPart" />
+    </AssociationSet>
+    <AssociationSet Name="LineWorkStation" Association="SupplyModel.Store.LineWorkStation">
+      <End Role="Line" EntitySet="Lines" />
+      <End Role="WorkStation" EntitySet="WorkStations" />
+    </AssociationSet>
+    <AssociationSet Name="WorkStationEquipment" Association="SupplyModel.Store.WorkStationEquipment">
+      <End Role="WorkStation" EntitySet="WorkStations" />
+      <End Role="Equipment" EntitySet="Equipments" />
+    </AssociationSet>
+    <AssociationSet Name="PlanPlanProduct" Association="SupplyModel.Store.PlanPlanProduct">
+      <End Role="Plan" EntitySet="Plans" />
+      <End Role="PlanProduct" EntitySet="PlanProducts" />
+    </AssociationSet>
+    <AssociationSet Name="WorkStationTypeWorkStation" Association="SupplyModel.Store.WorkStationTypeWorkStation">
+      <End Role="WorkStationType" EntitySet="WorkStationTypes" />
+      <End Role="WorkStation" EntitySet="WorkStations" />
+    </AssociationSet>
+    <AssociationSet Name="PlanProductProduct" Association="SupplyModel.Store.PlanProductProduct">
+      <End Role="PlanProduct" EntitySet="PlanProducts" />
+      <End Role="Product" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="PartMolding" Association="SupplyModel.Store.PartMolding">
+      <End Role="Part" EntitySet="Parts" />
+      <End Role="Molding" EntitySet="Moldings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MoldingEquipmentSpecification_Molding" Association="SupplyModel.Store.FK_MoldingEquipmentSpecification_Molding">
+      <End Role="Molding" EntitySet="Moldings" />
+      <End Role="MoldingEquipmentSpecification" EntitySet="MoldingEquipmentSpecification" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MoldingEquipmentSpecification_EquipmentSpecification" Association="SupplyModel.Store.FK_MoldingEquipmentSpecification_EquipmentSpecification">
+      <End Role="EquipmentSpecification" EntitySet="EquipmentSpecifications" />
+      <End Role="MoldingEquipmentSpecification" EntitySet="MoldingEquipmentSpecification" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EquipmentEquipmentCategory_Equipment" Association="SupplyModel.Store.FK_EquipmentEquipmentCategory_Equipment">
+      <End Role="Equipment" EntitySet="Equipments" />
+      <End Role="EquipmentEquipmentCategory" EntitySet="EquipmentEquipmentCategory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EquipmentEquipmentCategory_EquipmentCategory" Association="SupplyModel.Store.FK_EquipmentEquipmentCategory_EquipmentCategory">
+      <End Role="EquipmentCategory" EntitySet="EquipmentCategories" />
+      <End Role="EquipmentEquipmentCategory" EntitySet="EquipmentEquipmentCategory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MoldingEquipmentCategory_Molding" Association="SupplyModel.Store.FK_MoldingEquipmentCategory_Molding">
+      <End Role="Molding" EntitySet="Moldings" />
+      <End Role="MoldingEquipmentCategory" EntitySet="MoldingEquipmentCategory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MoldingEquipmentCategory_EquipmentCategory" Association="SupplyModel.Store.FK_MoldingEquipmentCategory_EquipmentCategory">
+      <End Role="EquipmentCategory" EntitySet="EquipmentCategories" />
+      <End Role="MoldingEquipmentCategory" EntitySet="MoldingEquipmentCategory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EquipmentEquipmentSpecification_Equipment" Association="SupplyModel.Store.FK_EquipmentEquipmentSpecification_Equipment">
+      <End Role="Equipment" EntitySet="Equipments" />
+      <End Role="EquipmentEquipmentSpecification" EntitySet="EquipmentEquipmentSpecification" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EquipmentEquipmentSpecification_EquipmentSpecification" Association="SupplyModel.Store.FK_EquipmentEquipmentSpecification_EquipmentSpecification">
+      <End Role="EquipmentSpecification" EntitySet="EquipmentSpecifications" />
+      <End Role="EquipmentEquipmentSpecification" EntitySet="EquipmentEquipmentSpecification" />
+    </AssociationSet>
+    <AssociationSet Name="CompanyOrder" Association="SupplyModel.Store.CompanyOrder">
+      <End Role="Company" EntitySet="Companies" />
+      <End Role="Order" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="OrderOrderSection" Association="SupplyModel.Store.OrderOrderSection">
+      <End Role="Order" EntitySet="Orders" />
+      <End Role="OrderSection" EntitySet="OrderSections" />
+    </AssociationSet>
+    <AssociationSet Name="ProductOrderSection" Association="SupplyModel.Store.ProductOrderSection">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="OrderSection" EntitySet="OrderSections" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Companies">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Address" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CompanyContacts">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Phone" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Fax" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="CompanyId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Materials">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Parts">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Plans">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Products">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Lines">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="WorkStations">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LineId" Type="int" Nullable="false" />
+    <Property Name="WorkStationTypeId" Type="int" Nullable="false" />
+    <Property Name="PhaseNumber" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Equipments">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="ProductionRunTime" Type="float" Nullable="false" />
+    <Property Name="ProductionCapacity" Type="int" Nullable="false" />
+    <Property Name="RunCapacity" Type="int" Nullable="false" />
+    <Property Name="FirstPassYield" Type="float" Nullable="false" />
+    <Property Name="ChangeOrderTime" Type="time" Nullable="false" />
+    <Property Name="ProductionLine" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="DownTime" Type="time" Nullable="false" />
+    <Property Name="OperatorCount" Type="float" Nullable="false" />
+    <Property Name="WorkStationId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PlanProducts">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PlanId" Type="int" Nullable="false" />
+    <Property Name="ProductId" Type="int" Nullable="false" />
+    <Property Name="TargetNumber" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="WorkStationTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Moldings">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PartId" Type="int" Nullable="false" />
+    <Property Name="Code" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Desciption" Type="nvarchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="EquipmentSpecifications">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Type" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Value" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EquipmentCategories">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" DefaultValue="&quot;&quot;" />
+  </EntityType>
+  <EntityType Name="Orders">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompanyId" Type="int" Nullable="false" />
+    <Property Name="Number" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CreatedDate" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OrderSections">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrderId" Type="int" Nullable="false" />
+    <Property Name="ProductId" Type="int" Nullable="false" />
+    <Property Name="Number" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Quantity" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ScheduleDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PartMaterial">
+    <Key>
+      <PropertyRef Name="Materials_Id" />
+      <PropertyRef Name="Parts_Id" />
+    </Key>
+    <Property Name="Materials_Id" Type="int" Nullable="false" />
+    <Property Name="Parts_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductPart">
+    <Key>
+      <PropertyRef Name="Parts_Id" />
+      <PropertyRef Name="Products_Id" />
+    </Key>
+    <Property Name="Parts_Id" Type="int" Nullable="false" />
+    <Property Name="Products_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MoldingEquipmentSpecification">
+    <Key>
+      <PropertyRef Name="Moldings_Id" />
+      <PropertyRef Name="EquipmentSpecifications_Id" />
+    </Key>
+    <Property Name="Moldings_Id" Type="int" Nullable="false" />
+    <Property Name="EquipmentSpecifications_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EquipmentEquipmentCategory">
+    <Key>
+      <PropertyRef Name="Equipments_Id" />
+      <PropertyRef Name="EquipmentCategories_Id" />
+    </Key>
+    <Property Name="Equipments_Id" Type="int" Nullable="false" />
+    <Property Name="EquipmentCategories_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MoldingEquipmentCategory">
+    <Key>
+      <PropertyRef Name="Moldings_Id" />
+      <PropertyRef Name="EquipmentCategories_Id" />
+    </Key>
+    <Property Name="Moldings_Id" Type="int" Nullable="false" />
+    <Property Name="EquipmentCategories_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EquipmentEquipmentSpecification">
+    <Key>
+      <PropertyRef Name="Equipments_Id" />
+      <PropertyRef Name="EquipmentSpecifications_Id" />
+    </Key>
+    <Property Name="Equipments_Id" Type="int" Nullable="false" />
+    <Property Name="EquipmentSpecifications_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_CompanyCompanyContact">
+    <End Role="Companies" Type="SupplyModel.Store.Companies" Multiplicity="1" />
+    <End Role="CompanyContacts" Type="SupplyModel.Store.CompanyContacts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Companies">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CompanyContacts">
+        <PropertyRef Name="CompanyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="LineWorkStation">
+    <End Role="Line" Type="SupplyModel.Store.Lines" Multiplicity="1" />
+    <End Role="WorkStation" Type="SupplyModel.Store.WorkStations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Line">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="WorkStation">
+        <PropertyRef Name="LineId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="WorkStationEquipment">
+    <End Role="WorkStation" Type="SupplyModel.Store.WorkStations" Multiplicity="1" />
+    <End Role="Equipment" Type="SupplyModel.Store.Equipments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WorkStation">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Equipment">
+        <PropertyRef Name="WorkStationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PlanPlanProduct">
+    <End Role="Plan" Type="SupplyModel.Store.Plans" Multiplicity="1" />
+    <End Role="PlanProduct" Type="SupplyModel.Store.PlanProducts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Plan">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PlanProduct">
+        <PropertyRef Name="PlanId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="WorkStationTypeWorkStation">
+    <End Role="WorkStationType" Type="SupplyModel.Store.WorkStationTypes" Multiplicity="1" />
+    <End Role="WorkStation" Type="SupplyModel.Store.WorkStations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WorkStationType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="WorkStation">
+        <PropertyRef Name="WorkStationTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PlanProductProduct">
+    <End Role="PlanProduct" Type="SupplyModel.Store.PlanProducts" Multiplicity="*" />
+    <End Role="Product" Type="SupplyModel.Store.Products" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PlanProduct">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PartMolding">
+    <End Role="Part" Type="SupplyModel.Store.Parts" Multiplicity="1" />
+    <End Role="Molding" Type="SupplyModel.Store.Moldings" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Part">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Molding">
+        <PropertyRef Name="PartId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CompanyOrder">
+    <End Role="Company" Type="SupplyModel.Store.Companies" Multiplicity="1" />
+    <End Role="Order" Type="SupplyModel.Store.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="CompanyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="OrderOrderSection">
+    <End Role="Order" Type="SupplyModel.Store.Orders" Multiplicity="1" />
+    <End Role="OrderSection" Type="SupplyModel.Store.OrderSections" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Order">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OrderSection">
+        <PropertyRef Name="OrderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProductOrderSection">
+    <End Role="Product" Type="SupplyModel.Store.Products" Multiplicity="1" />
+    <End Role="OrderSection" Type="SupplyModel.Store.OrderSections" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OrderSection">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PartMaterial_Materials">
+    <End Role="Materials" Type="SupplyModel.Store.Materials" Multiplicity="1" />
+    <End Role="PartMaterial" Type="SupplyModel.Store.PartMaterial" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Materials">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PartMaterial">
+        <PropertyRef Name="Materials_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PartMaterial_Parts">
+    <End Role="PartMaterial" Type="SupplyModel.Store.PartMaterial" Multiplicity="*" />
+    <End Role="Parts" Type="SupplyModel.Store.Parts" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Parts">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PartMaterial">
+        <PropertyRef Name="Parts_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductPart_Parts">
+    <End Role="Parts" Type="SupplyModel.Store.Parts" Multiplicity="1" />
+    <End Role="ProductPart" Type="SupplyModel.Store.ProductPart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Parts">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProductPart">
+        <PropertyRef Name="Parts_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductPart_Products">
+    <End Role="ProductPart" Type="SupplyModel.Store.ProductPart" Multiplicity="*" />
+    <End Role="Products" Type="SupplyModel.Store.Products" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProductPart">
+        <PropertyRef Name="Products_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MoldingEquipmentSpecification_Molding">
+    <End Role="Molding" Type="SupplyModel.Store.Moldings" Multiplicity="1" />
+    <End Role="MoldingEquipmentSpecification" Type="SupplyModel.Store.MoldingEquipmentSpecification" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Molding">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MoldingEquipmentSpecification">
+        <PropertyRef Name="Moldings_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MoldingEquipmentSpecification_EquipmentSpecification">
+    <End Role="MoldingEquipmentSpecification" Type="SupplyModel.Store.MoldingEquipmentSpecification" Multiplicity="*" />
+    <End Role="EquipmentSpecification" Type="SupplyModel.Store.EquipmentSpecifications" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="EquipmentSpecification">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MoldingEquipmentSpecification">
+        <PropertyRef Name="EquipmentSpecifications_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EquipmentEquipmentCategory_Equipment">
+    <End Role="Equipment" Type="SupplyModel.Store.Equipments" Multiplicity="1" />
+    <End Role="EquipmentEquipmentCategory" Type="SupplyModel.Store.EquipmentEquipmentCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Equipment">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EquipmentEquipmentCategory">
+        <PropertyRef Name="Equipments_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EquipmentEquipmentCategory_EquipmentCategory">
+    <End Role="EquipmentEquipmentCategory" Type="SupplyModel.Store.EquipmentEquipmentCategory" Multiplicity="*" />
+    <End Role="EquipmentCategory" Type="SupplyModel.Store.EquipmentCategories" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="EquipmentCategory">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EquipmentEquipmentCategory">
+        <PropertyRef Name="EquipmentCategories_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MoldingEquipmentCategory_Molding">
+    <End Role="Molding" Type="SupplyModel.Store.Moldings" Multiplicity="1" />
+    <End Role="MoldingEquipmentCategory" Type="SupplyModel.Store.MoldingEquipmentCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Molding">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MoldingEquipmentCategory">
+        <PropertyRef Name="Moldings_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MoldingEquipmentCategory_EquipmentCategory">
+    <End Role="MoldingEquipmentCategory" Type="SupplyModel.Store.MoldingEquipmentCategory" Multiplicity="*" />
+    <End Role="EquipmentCategory" Type="SupplyModel.Store.EquipmentCategories" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="EquipmentCategory">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MoldingEquipmentCategory">
+        <PropertyRef Name="EquipmentCategories_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EquipmentEquipmentSpecification_Equipment">
+    <End Role="Equipment" Type="SupplyModel.Store.Equipments" Multiplicity="1" />
+    <End Role="EquipmentEquipmentSpecification" Type="SupplyModel.Store.EquipmentEquipmentSpecification" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Equipment">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EquipmentEquipmentSpecification">
+        <PropertyRef Name="Equipments_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EquipmentEquipmentSpecification_EquipmentSpecification">
+    <End Role="EquipmentEquipmentSpecification" Type="SupplyModel.Store.EquipmentEquipmentSpecification" Multiplicity="*" />
+    <End Role="EquipmentSpecification" Type="SupplyModel.Store.EquipmentSpecifications" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="EquipmentSpecification">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EquipmentEquipmentSpecification">
+        <PropertyRef Name="EquipmentSpecifications_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SupplyModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="CompanyContacts" Relationship="Self.FK_CompanyCompanyContact" FromRole="Companies" ToRole="CompanyContacts" />
+          <NavigationProperty Name="Orders" Relationship="SupplyModel.CompanyOrder" FromRole="Company" ToRole="Order" />
+        </EntityType>
+        <EntityType Name="CompanyContact">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Fax" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Company" Relationship="Self.FK_CompanyCompanyContact" FromRole="CompanyContacts" ToRole="Companies" />
+        </EntityType>
+        <EntityType Name="Material">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Parts" Relationship="Self.PartMaterial" FromRole="Materials" ToRole="Parts" />
+        </EntityType>
+        <EntityType Name="Part">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Materials" Relationship="Self.PartMaterial" FromRole="Parts" ToRole="Materials" />
+          <NavigationProperty Name="Products" Relationship="Self.ProductPart" FromRole="Parts" ToRole="Products" />
+          <NavigationProperty Name="Moldings" Relationship="SupplyModel.PartMolding" FromRole="Part" ToRole="Molding" />
+        </EntityType>
+        <EntityType Name="Plan">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="PlanProducts" Relationship="SupplyModel.PlanPlanProduct" FromRole="Plan" ToRole="PlanProduct" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Parts" Relationship="Self.ProductPart" FromRole="Products" ToRole="Parts" />
+          <NavigationProperty Name="PlanProducts" Relationship="SupplyModel.PlanProductProduct" FromRole="Product" ToRole="PlanProduct" />
+          <NavigationProperty Name="OrderSections" Relationship="SupplyModel.ProductOrderSection" FromRole="Product" ToRole="OrderSection" />
+        </EntityType>
+        <Association Name="FK_CompanyCompanyContact">
+          <End Role="Companies" Type="Self.Company" Multiplicity="1" />
+          <End Role="CompanyContacts" Type="Self.CompanyContact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Companies">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CompanyContacts">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PartMaterial">
+          <End Role="Materials" Type="Self.Material" Multiplicity="*" />
+          <End Role="Parts" Type="Self.Part" Multiplicity="*" />
+        </Association>
+        <Association Name="ProductPart">
+          <End Role="Parts" Type="Self.Part" Multiplicity="*" />
+          <End Role="Products" Type="Self.Product" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="SupplyEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Companies" EntityType="Self.Company" />
+          <EntitySet Name="CompanyContacts" EntityType="Self.CompanyContact" />
+          <EntitySet Name="Materials" EntityType="Self.Material" />
+          <EntitySet Name="Parts" EntityType="Self.Part" />
+          <EntitySet Name="Plans" EntityType="Self.Plan" />
+          <EntitySet Name="Products" EntityType="Self.Product" />
+          <AssociationSet Name="FK_CompanyCompanyContact" Association="Self.FK_CompanyCompanyContact">
+            <End Role="Companies" EntitySet="Companies" />
+            <End Role="CompanyContacts" EntitySet="CompanyContacts" />
+          </AssociationSet>
+          <AssociationSet Name="PartMaterial" Association="Self.PartMaterial">
+            <End Role="Materials" EntitySet="Materials" />
+            <End Role="Parts" EntitySet="Parts" />
+          </AssociationSet>
+          <AssociationSet Name="ProductPart" Association="Self.ProductPart">
+            <End Role="Parts" EntitySet="Parts" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <EntitySet Name="Lines" EntityType="SupplyModel.Line" />
+          <EntitySet Name="WorkStations" EntityType="SupplyModel.WorkStation" />
+          <EntitySet Name="Equipments" EntityType="SupplyModel.Equipment" />
+          <AssociationSet Name="LineWorkStation" Association="SupplyModel.LineWorkStation">
+            <End Role="Line" EntitySet="Lines" />
+            <End Role="WorkStation" EntitySet="WorkStations" />
+          </AssociationSet>
+          <AssociationSet Name="WorkStationEquipment" Association="SupplyModel.WorkStationEquipment">
+            <End Role="WorkStation" EntitySet="WorkStations" />
+            <End Role="Equipment" EntitySet="Equipments" />
+          </AssociationSet>
+          <EntitySet Name="PlanProducts" EntityType="SupplyModel.PlanProduct" />
+          <AssociationSet Name="PlanPlanProduct" Association="SupplyModel.PlanPlanProduct">
+            <End Role="Plan" EntitySet="Plans" />
+            <End Role="PlanProduct" EntitySet="PlanProducts" />
+          </AssociationSet>
+          <EntitySet Name="WorkStationTypes" EntityType="SupplyModel.WorkStationType" />
+          <AssociationSet Name="WorkStationTypeWorkStation" Association="SupplyModel.WorkStationTypeWorkStation">
+            <End Role="WorkStationType" EntitySet="WorkStationTypes" />
+            <End Role="WorkStation" EntitySet="WorkStations" />
+          </AssociationSet>
+          <AssociationSet Name="PlanProductProduct" Association="SupplyModel.PlanProductProduct">
+            <End Role="PlanProduct" EntitySet="PlanProducts" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <EntitySet Name="Moldings" EntityType="SupplyModel.Molding" />
+          <AssociationSet Name="PartMolding" Association="SupplyModel.PartMolding">
+            <End Role="Part" EntitySet="Parts" />
+            <End Role="Molding" EntitySet="Moldings" />
+          </AssociationSet>
+          <EntitySet Name="EquipmentSpecifications" EntityType="SupplyModel.EquipmentSpecification" />
+          <EntitySet Name="EquipmentCategories" EntityType="SupplyModel.EquipmentCategory" />
+          <AssociationSet Name="MoldingEquipmentSpecification" Association="SupplyModel.MoldingEquipmentSpecification">
+            <End Role="Molding" EntitySet="Moldings" />
+            <End Role="EquipmentSpecification" EntitySet="EquipmentSpecifications" />
+          </AssociationSet>
+          <AssociationSet Name="EquipmentEquipmentCategory" Association="SupplyModel.EquipmentEquipmentCategory">
+            <End Role="Equipment" EntitySet="Equipments" />
+            <End Role="EquipmentCategory" EntitySet="EquipmentCategories" />
+          </AssociationSet>
+          <AssociationSet Name="MoldingEquipmentCategory" Association="SupplyModel.MoldingEquipmentCategory">
+            <End Role="Molding" EntitySet="Moldings" />
+            <End Role="EquipmentCategory" EntitySet="EquipmentCategories" />
+          </AssociationSet>
+          <AssociationSet Name="EquipmentEquipmentSpecification" Association="SupplyModel.EquipmentEquipmentSpecification">
+            <End Role="Equipment" EntitySet="Equipments" />
+            <End Role="EquipmentSpecification" EntitySet="EquipmentSpecifications" />
+          </AssociationSet>
+          <EntitySet Name="Orders" EntityType="SupplyModel.Order" />
+          <AssociationSet Name="CompanyOrder" Association="SupplyModel.CompanyOrder">
+            <End Role="Company" EntitySet="Companies" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <EntitySet Name="OrderSections" EntityType="SupplyModel.OrderSection" />
+          <AssociationSet Name="OrderOrderSection" Association="SupplyModel.OrderOrderSection">
+            <End Role="Order" EntitySet="Orders" />
+            <End Role="OrderSection" EntitySet="OrderSections" />
+          </AssociationSet>
+          <AssociationSet Name="ProductOrderSection" Association="SupplyModel.ProductOrderSection">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="OrderSection" EntitySet="OrderSections" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Line">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="false" />
+          <NavigationProperty Name="WorkStations" Relationship="SupplyModel.LineWorkStation" FromRole="Line" ToRole="WorkStation" />
+        </EntityType>
+        <EntityType Name="WorkStation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="false" />
+          <Property Name="LineId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Line" Relationship="SupplyModel.LineWorkStation" FromRole="WorkStation" ToRole="Line" />
+          <NavigationProperty Name="Equipments" Relationship="SupplyModel.WorkStationEquipment" FromRole="WorkStation" ToRole="Equipment" />
+          <NavigationProperty Name="WorkStationType" Relationship="SupplyModel.WorkStationTypeWorkStation" FromRole="WorkStation" ToRole="WorkStationType" />
+          <Property Name="WorkStationTypeId" Type="Int32" Nullable="false" />
+          <Property Name="PhaseNumber" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Equipment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="true" />
+          <Property Name="ProductionRunTime" Type="Double" Nullable="false" />
+          <Property Name="ProductionCapacity" Type="Int32" Nullable="false" />
+          <Property Name="RunCapacity" Type="Int32" Nullable="false" />
+          <Property Name="FirstPassYield" Type="Double" Nullable="false" />
+          <Property Name="ChangeOrderTime" Type="Time" Nullable="false" />
+          <Property Name="ProductionLine" Type="String" Nullable="true" />
+          <Property Name="DownTime" Type="Time" Nullable="false" />
+          <Property Name="OperatorCount" Type="Double" Nullable="false" />
+          <Property Name="WorkStationId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="WorkStation" Relationship="SupplyModel.WorkStationEquipment" FromRole="Equipment" ToRole="WorkStation" />
+          <NavigationProperty Name="EquipmentCategories" Relationship="SupplyModel.EquipmentEquipmentCategory" FromRole="Equipment" ToRole="EquipmentCategory" />
+          <NavigationProperty Name="EquipmentSpecifications" Relationship="SupplyModel.EquipmentEquipmentSpecification" FromRole="Equipment" ToRole="EquipmentSpecification" />
+        </EntityType>
+        <Association Name="LineWorkStation">
+          <End Type="SupplyModel.Line" Role="Line" Multiplicity="1" />
+          <End Type="SupplyModel.WorkStation" Role="WorkStation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Line">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="WorkStation">
+              <PropertyRef Name="LineId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="WorkStationEquipment">
+          <End Type="SupplyModel.WorkStation" Role="WorkStation" Multiplicity="1" />
+          <End Type="SupplyModel.Equipment" Role="Equipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WorkStation">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Equipment">
+              <PropertyRef Name="WorkStationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="PlanProduct">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Plan" Relationship="SupplyModel.PlanPlanProduct" FromRole="PlanProduct" ToRole="Plan" />
+          <Property Name="PlanId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Product" Relationship="SupplyModel.PlanProductProduct" FromRole="PlanProduct" ToRole="Product" />
+          <Property Name="ProductId" Type="Int32" Nullable="false" />
+          <Property Name="TargetNumber" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="PlanPlanProduct">
+          <End Type="SupplyModel.Plan" Role="Plan" Multiplicity="1" />
+          <End Type="SupplyModel.PlanProduct" Role="PlanProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Plan">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PlanProduct">
+              <PropertyRef Name="PlanId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="WorkStationType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="true" />
+          <NavigationProperty Name="WorkStations" Relationship="SupplyModel.WorkStationTypeWorkStation" FromRole="WorkStationType" ToRole="WorkStation" />
+        </EntityType>
+        <Association Name="WorkStationTypeWorkStation">
+          <End Type="SupplyModel.WorkStationType" Role="WorkStationType" Multiplicity="1" />
+          <End Type="SupplyModel.WorkStation" Role="WorkStation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WorkStationType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="WorkStation">
+              <PropertyRef Name="WorkStationTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PlanProductProduct">
+          <End Type="SupplyModel.PlanProduct" Role="PlanProduct" Multiplicity="*" />
+          <End Type="SupplyModel.Product" Role="Product" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PlanProduct">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Molding">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PartId" Type="Int32" Nullable="false" />
+          <Property Name="Code" Type="String" Nullable="false" />
+          <NavigationProperty Name="Part" Relationship="SupplyModel.PartMolding" FromRole="Molding" ToRole="Part" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="Desciption" Type="String" Nullable="true" />
+          <NavigationProperty Name="EquipmentSpecifications" Relationship="SupplyModel.MoldingEquipmentSpecification" FromRole="Molding" ToRole="EquipmentSpecification" />
+          <NavigationProperty Name="EquipmentCategories" Relationship="SupplyModel.MoldingEquipmentCategory" FromRole="Molding" ToRole="EquipmentCategory" />
+        </EntityType>
+        <Association Name="PartMolding">
+          <End Type="SupplyModel.Part" Role="Part" Multiplicity="1" />
+          <End Type="SupplyModel.Molding" Role="Molding" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Part">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Molding">
+              <PropertyRef Name="PartId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="EquipmentSpecification">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="String" Nullable="false" />
+          <Property Name="Value" Type="String" Nullable="false" />
+          <NavigationProperty Name="Moldings" Relationship="SupplyModel.MoldingEquipmentSpecification" FromRole="EquipmentSpecification" ToRole="Molding" />
+          <NavigationProperty Name="Equipments" Relationship="SupplyModel.EquipmentEquipmentSpecification" FromRole="EquipmentSpecification" ToRole="Equipment" />
+        </EntityType>
+        <EntityType Name="EquipmentCategory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="false" DefaultValue="&quot;&quot;" />
+          <NavigationProperty Name="Equipments" Relationship="SupplyModel.EquipmentEquipmentCategory" FromRole="EquipmentCategory" ToRole="Equipment" />
+          <NavigationProperty Name="Moldings" Relationship="SupplyModel.MoldingEquipmentCategory" FromRole="EquipmentCategory" ToRole="Molding" />
+        </EntityType>
+        <Association Name="MoldingEquipmentSpecification">
+          <End Type="SupplyModel.Molding" Role="Molding" Multiplicity="*" />
+          <End Type="SupplyModel.EquipmentSpecification" Role="EquipmentSpecification" Multiplicity="*" />
+        </Association>
+        <Association Name="EquipmentEquipmentCategory">
+          <End Type="SupplyModel.Equipment" Role="Equipment" Multiplicity="*" />
+          <End Type="SupplyModel.EquipmentCategory" Role="EquipmentCategory" Multiplicity="*" />
+        </Association>
+        <Association Name="MoldingEquipmentCategory">
+          <End Type="SupplyModel.Molding" Role="Molding" Multiplicity="*" />
+          <End Type="SupplyModel.EquipmentCategory" Role="EquipmentCategory" Multiplicity="*" />
+        </Association>
+        <Association Name="EquipmentEquipmentSpecification">
+          <End Type="SupplyModel.Equipment" Role="Equipment" Multiplicity="*" />
+          <End Type="SupplyModel.EquipmentSpecification" Role="EquipmentSpecification" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyId" Type="Int32" Nullable="false" />
+          <Property Name="Number" Type="String" Nullable="false" />
+          <NavigationProperty Name="Company" Relationship="SupplyModel.CompanyOrder" FromRole="Order" ToRole="Company" />
+          <NavigationProperty Name="OrderSections" Relationship="SupplyModel.OrderOrderSection" FromRole="Order" ToRole="OrderSection" />
+          <Property Name="CreatedDate" Type="String" Nullable="false" />
+        </EntityType>
+        <Association Name="CompanyOrder">
+          <End Type="SupplyModel.Company" Role="Company" Multiplicity="1" />
+          <End Type="SupplyModel.Order" Role="Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="OrderSection">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Order" Relationship="SupplyModel.OrderOrderSection" FromRole="OrderSection" ToRole="Order" />
+          <Property Name="OrderId" Type="Int32" Nullable="false" />
+          <Property Name="ProductId" Type="Int32" Nullable="false" />
+          <Property Name="Number" Type="String" Nullable="false" />
+          <Property Name="Quantity" Type="String" Nullable="false" />
+          <Property Name="ScheduleDate" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="Product" Relationship="SupplyModel.ProductOrderSection" FromRole="OrderSection" ToRole="Product" />
+        </EntityType>
+        <Association Name="OrderOrderSection">
+          <End Type="SupplyModel.Order" Role="Order" Multiplicity="1" />
+          <End Type="SupplyModel.OrderSection" Role="OrderSection" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderSection">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ProductOrderSection">
+          <End Type="SupplyModel.Product" Role="Product" Multiplicity="1" />
+          <End Type="SupplyModel.OrderSection" Role="OrderSection" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderSection">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SupplyModelStoreContainer" CdmEntityContainer="SupplyEntities">
+    <EntitySetMapping Name="Companies">
+      <EntityTypeMapping TypeName="IsTypeOf(SupplyModel.Company)">
+        <MappingFragment StoreEntitySet="Companies">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CompanyContacts">
+      <EntityTypeMapping TypeName="IsTypeOf(SupplyModel.CompanyContact)">
+        <MappingFragment StoreEntitySet="CompanyContacts">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Materials">
+      <EntityTypeMapping TypeName="IsTypeOf(SupplyModel.Material)">
+        <MappingFragment StoreEntitySet="Materials">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Parts">
+      <EntityTypeMapping TypeName="IsTypeOf(SupplyModel.Part)">
+        <MappingFragment StoreEntitySet="Parts">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Plans">
+      <EntityTypeMapping TypeName="IsTypeOf(SupplyModel.Plan)">
+        <MappingFragment StoreEntitySet="Plans">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="IsTypeOf(SupplyModel.Product)">
+        <MappingFragment StoreEntitySet="Products">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Lines">
+      <EntityTypeMapping TypeName="IsTypeOf(SupplyModel.Line)">
+        <MappingFragment StoreEntitySet="Lines">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WorkStations">
+      <EntityTypeMapping TypeName="IsTypeOf(SupplyModel.WorkStation)">
+        <MappingFragment StoreEntitySet="WorkStations">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="LineId" ColumnName="LineId" />
+          <ScalarProperty Name="WorkStationTypeId" ColumnName="WorkStationTypeId" />
+          <ScalarProperty Name="PhaseNumber" ColumnName="PhaseNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Equipments">
+      <EntityTypeMapping TypeName="IsTypeOf(SupplyModel.Equipment)">
+        <MappingFragment StoreEntitySet="Equipments">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ProductionRunTime" ColumnName="ProductionRunTime" />
+          <ScalarProperty Name="ProductionCapacity" ColumnName="ProductionCapacity" />
+          <ScalarProperty Name="RunCapacity" ColumnName="RunCapacity" />
+          <ScalarProperty Name="FirstPassYield" ColumnName="FirstPassYield" />
+          <ScalarProperty Name="ChangeOrderTime" ColumnName="ChangeOrderTime" />
+          <ScalarProperty Name="ProductionLine" ColumnName="ProductionLine" />
+          <ScalarProperty Name="DownTime" ColumnName="DownTime" />
+          <ScalarProperty Name="OperatorCount" ColumnName="OperatorCount" />
+          <ScalarProperty Name="WorkStationId" ColumnName="WorkStationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PlanProducts">
+      <EntityTypeMapping TypeName="IsTypeOf(SupplyModel.PlanProduct)">
+        <MappingFragment StoreEntitySet="PlanProducts">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PlanId" ColumnName="PlanId" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="TargetNumber" ColumnName="TargetNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WorkStationTypes">
+      <EntityTypeMapping TypeName="IsTypeOf(SupplyModel.WorkStationType)">
+        <MappingFragment StoreEntitySet="WorkStationTypes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Moldings">
+      <EntityTypeMapping TypeName="IsTypeOf(SupplyModel.Molding)">
+        <MappingFragment StoreEntitySet="Moldings">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PartId" ColumnName="PartId" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Desciption" ColumnName="Desciption" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EquipmentSpecifications">
+      <EntityTypeMapping TypeName="IsTypeOf(SupplyModel.EquipmentSpecification)">
+        <MappingFragment StoreEntitySet="EquipmentSpecifications">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EquipmentCategories">
+      <EntityTypeMapping TypeName="IsTypeOf(SupplyModel.EquipmentCategory)">
+        <MappingFragment StoreEntitySet="EquipmentCategories">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orders">
+      <EntityTypeMapping TypeName="IsTypeOf(SupplyModel.Order)">
+        <MappingFragment StoreEntitySet="Orders">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderSections">
+      <EntityTypeMapping TypeName="IsTypeOf(SupplyModel.OrderSection)">
+        <MappingFragment StoreEntitySet="OrderSections">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="ScheduleDate" ColumnName="ScheduleDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="PartMaterial" TypeName="SupplyModel.PartMaterial" StoreEntitySet="PartMaterial">
+      <EndProperty Name="Materials">
+        <ScalarProperty Name="Id" ColumnName="Materials_Id" />
+      </EndProperty>
+      <EndProperty Name="Parts">
+        <ScalarProperty Name="Id" ColumnName="Parts_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ProductPart" TypeName="SupplyModel.ProductPart" StoreEntitySet="ProductPart">
+      <EndProperty Name="Parts">
+        <ScalarProperty Name="Id" ColumnName="Parts_Id" />
+      </EndProperty>
+      <EndProperty Name="Products">
+        <ScalarProperty Name="Id" ColumnName="Products_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="MoldingEquipmentSpecification" TypeName="SupplyModel.MoldingEquipmentSpecification" StoreEntitySet="MoldingEquipmentSpecification">
+      <EndProperty Name="Molding">
+        <ScalarProperty Name="Id" ColumnName="Moldings_Id" />
+      </EndProperty>
+      <EndProperty Name="EquipmentSpecification">
+        <ScalarProperty Name="Id" ColumnName="EquipmentSpecifications_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="EquipmentEquipmentCategory" TypeName="SupplyModel.EquipmentEquipmentCategory" StoreEntitySet="EquipmentEquipmentCategory">
+      <EndProperty Name="Equipment">
+        <ScalarProperty Name="Id" ColumnName="Equipments_Id" />
+      </EndProperty>
+      <EndProperty Name="EquipmentCategory">
+        <ScalarProperty Name="Id" ColumnName="EquipmentCategories_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="MoldingEquipmentCategory" TypeName="SupplyModel.MoldingEquipmentCategory" StoreEntitySet="MoldingEquipmentCategory">
+      <EndProperty Name="Molding">
+        <ScalarProperty Name="Id" ColumnName="Moldings_Id" />
+      </EndProperty>
+      <EndProperty Name="EquipmentCategory">
+        <ScalarProperty Name="Id" ColumnName="EquipmentCategories_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="EquipmentEquipmentSpecification" TypeName="SupplyModel.EquipmentEquipmentSpecification" StoreEntitySet="EquipmentEquipmentSpecification">
+      <EndProperty Name="Equipment">
+        <ScalarProperty Name="Id" ColumnName="Equipments_Id" />
+      </EndProperty>
+      <EndProperty Name="EquipmentSpecification">
+        <ScalarProperty Name="Id" ColumnName="EquipmentSpecifications_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

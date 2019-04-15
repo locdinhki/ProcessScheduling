@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SupplyProFacilityStoreContainer" CdmEntityContainer="SupplyProFacilities">
+    <EntitySetMapping Name="Lines">
+      <EntityTypeMapping TypeName="IsTypeOf(SupplyProFacility.Line)">
+        <MappingFragment StoreEntitySet="Lines">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WorkStations">
+      <EntityTypeMapping TypeName="IsTypeOf(SupplyProFacility.WorkStation)">
+        <MappingFragment StoreEntitySet="WorkStations">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="LineId" ColumnName="LineId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Equipments">
+      <EntityTypeMapping TypeName="IsTypeOf(SupplyProFacility.Equipment)">
+        <MappingFragment StoreEntitySet="Equipments">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="CycleTime" ColumnName="CycleTime" />
+          <ScalarProperty Name="ProductionRunTime" ColumnName="ProductionRunTime" />
+          <ScalarProperty Name="ProductionCapacity" ColumnName="ProductionCapacity" />
+          <ScalarProperty Name="RunCapacity" ColumnName="RunCapacity" />
+          <ScalarProperty Name="FirstPassYield" ColumnName="FirstPassYield" />
+          <ScalarProperty Name="ChangeOrderTime" ColumnName="ChangeOrderTime" />
+          <ScalarProperty Name="ProductionLine" ColumnName="ProductionLine" />
+          <ScalarProperty Name="DownTime" ColumnName="DownTime" />
+          <ScalarProperty Name="WorkStationId" ColumnName="WorkStationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

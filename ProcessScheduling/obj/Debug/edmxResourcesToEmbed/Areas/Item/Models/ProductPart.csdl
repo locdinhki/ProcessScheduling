@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ProductPart" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="SupplyProEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Parts" EntityType="ProductPart.Part" />
+    <EntitySet Name="Materials" EntityType="ProductPart.Material" />
+    <EntitySet Name="Products" EntityType="ProductPart.Product" />
+    <AssociationSet Name="ProductPart" Association="ProductPart.ProductPart">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="Part" EntitySet="Parts" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Part">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Code" Type="String" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" />
+    <Property Name="Description" Type="String" Nullable="true" />
+    <NavigationProperty Name="Products" Relationship="ProductPart.ProductPart" FromRole="Part" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="Material">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Code" Type="String" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" />
+    <Property Name="Description" Type="String" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Code" Type="String" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" />
+    <Property Name="Description" Type="String" Nullable="true" />
+    <NavigationProperty Name="Parts" Relationship="ProductPart.ProductPart" FromRole="Product" ToRole="Part" />
+  </EntityType>
+  <Association Name="ProductPart">
+    <End Type="ProductPart.Product" Role="Product" Multiplicity="*" />
+    <End Type="ProductPart.Part" Role="Part" Multiplicity="*" />
+  </Association>
+</Schema>

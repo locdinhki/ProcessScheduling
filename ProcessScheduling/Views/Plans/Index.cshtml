@@ -1,0 +1,31 @@
+﻿@model IEnumerable<ProcessScheduling.Models.Plan>
+
+@{
+    ViewBag.Title = "Production Plans";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>
+    <a href="@Url.Action("Create", "Plans")" class="btn btn-primary btn-large">Add Plan</a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            <a href="@Url.Action("Details", "Plans", new { id = item.Id})" class="btn btn-default btn-sm">@item.Name</a>
+        </td>
+        <td>
+            <a href="@Url.Action("Edit", "Plans", new { id = item.Id})" class="btn btn-info btn-sm">Edit</a>
+        </td>
+    </tr>
+}
+
+</table>

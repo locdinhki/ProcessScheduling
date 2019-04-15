@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Customer" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="SupplyProCustomers" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Companies" EntityType="Customer.Company" />
+    <EntitySet Name="CompanyContacts" EntityType="Customer.CompanyContact" />
+    <AssociationSet Name="CompanyCompanyContact" Association="Customer.CompanyCompanyContact">
+      <End Role="Company" EntitySet="Companies" />
+      <End Role="CompanyContact" EntitySet="CompanyContacts" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Company">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" />
+    <Property Name="Description" Type="String" Nullable="true" />
+    <Property Name="Address" Type="String" Nullable="false" />
+    <NavigationProperty Name="CompanyContacts" Relationship="Customer.CompanyCompanyContact" FromRole="Company" ToRole="CompanyContact" />
+  </EntityType>
+  <EntityType Name="CompanyContact">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" />
+    <Property Name="Phone" Type="String" Nullable="false" />
+    <Property Name="Email" Type="String" Nullable="false" />
+    <Property Name="Fax" Type="String" Nullable="true" />
+    <NavigationProperty Name="Company" Relationship="Customer.CompanyCompanyContact" FromRole="CompanyContact" ToRole="Company" />
+    <Property Name="CompanyId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <Association Name="CompanyCompanyContact">
+    <End Type="Customer.Company" Role="Company" Multiplicity="1" />
+    <End Type="Customer.CompanyContact" Role="CompanyContact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CompanyContact">
+        <PropertyRef Name="CompanyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

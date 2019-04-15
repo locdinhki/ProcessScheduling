@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SupplyProFacility" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="SupplyProFacilities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Lines" EntityType="SupplyProFacility.Line" />
+    <EntitySet Name="WorkStations" EntityType="SupplyProFacility.WorkStation" />
+    <EntitySet Name="Equipments" EntityType="SupplyProFacility.Equipment" />
+    <AssociationSet Name="LineWorkStation" Association="SupplyProFacility.LineWorkStation">
+      <End Role="Line" EntitySet="Lines" />
+      <End Role="WorkStation" EntitySet="WorkStations" />
+    </AssociationSet>
+    <AssociationSet Name="WorkStationEquipment" Association="SupplyProFacility.WorkStationEquipment">
+      <End Role="WorkStation" EntitySet="WorkStations" />
+      <End Role="Equipment" EntitySet="Equipments" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Line">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" />
+    <Property Name="Description" Type="String" Nullable="false" />
+    <NavigationProperty Name="WorkStations" Relationship="SupplyProFacility.LineWorkStation" FromRole="Line" ToRole="WorkStation" />
+  </EntityType>
+  <EntityType Name="WorkStation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" />
+    <Property Name="Description" Type="String" Nullable="false" />
+    <NavigationProperty Name="Line" Relationship="SupplyProFacility.LineWorkStation" FromRole="WorkStation" ToRole="Line" />
+    <Property Name="LineId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Equipments" Relationship="SupplyProFacility.WorkStationEquipment" FromRole="WorkStation" ToRole="Equipment" />
+  </EntityType>
+  <EntityType Name="Equipment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Code" Type="String" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" />
+    <Property Name="Description" Type="String" Nullable="false" />
+    <Property Name="CycleTime" Type="Time" Nullable="false" />
+    <Property Name="ProductionRunTime" Type="String" Nullable="false" />
+    <Property Name="ProductionCapacity" Type="Int32" Nullable="false" />
+    <Property Name="RunCapacity" Type="Int32" Nullable="false" />
+    <Property Name="FirstPassYield" Type="Int32" Nullable="false" />
+    <Property Name="ChangeOrderTime" Type="Time" Nullable="false" />
+    <Property Name="ProductionLine" Type="String" Nullable="true" />
+    <Property Name="DownTime" Type="DateTime" Nullable="true" />
+    <NavigationProperty Name="WorkStation" Relationship="SupplyProFacility.WorkStationEquipment" FromRole="Equipment" ToRole="WorkStation" />
+    <Property Name="WorkStationId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <Association Name="LineWorkStation">
+    <End Type="SupplyProFacility.Line" Role="Line" Multiplicity="1" />
+    <End Type="SupplyProFacility.WorkStation" Role="WorkStation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Line">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="WorkStation">
+        <PropertyRef Name="LineId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="WorkStationEquipment">
+    <End Type="SupplyProFacility.WorkStation" Role="WorkStation" Multiplicity="1" />
+    <End Type="SupplyProFacility.Equipment" Role="Equipment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WorkStation">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Equipment">
+        <PropertyRef Name="WorkStationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EnumType Name="WorkStationType">
+    <Member Name="IM" />
+    <Member Name="Coating" />
+    <Member Name="Print" />
+    <Member Name="Assembly" />
+  </EnumType>
+</Schema>

@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Plan.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Materials">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="PartMaterial">
+    <Key>
+      <PropertyRef Name="Parts_Id" />
+      <PropertyRef Name="Materials_Id" />
+    </Key>
+    <Property Name="Parts_Id" Type="int" Nullable="false" />
+    <Property Name="Materials_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Parts">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="PlanProducts">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PlanId" Type="int" Nullable="false" />
+    <Property Name="Product_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Plans">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductPart">
+    <Key>
+      <PropertyRef Name="Products_Id" />
+      <PropertyRef Name="Parts_Id" />
+    </Key>
+    <Property Name="Products_Id" Type="int" Nullable="false" />
+    <Property Name="Parts_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Products">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" />
+  </EntityType>
+  <Association Name="FK_PartMaterial_Material">
+    <End Role="Materials" Type="Self.Materials" Multiplicity="1" />
+    <End Role="PartMaterial" Type="Self.PartMaterial" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Materials">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PartMaterial">
+        <PropertyRef Name="Materials_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PartMaterial_Part">
+    <End Role="Parts" Type="Self.Parts" Multiplicity="1" />
+    <End Role="PartMaterial" Type="Self.PartMaterial" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Parts">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PartMaterial">
+        <PropertyRef Name="Parts_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PlanPlanProducts">
+    <End Role="Plans" Type="Self.Plans" Multiplicity="1" />
+    <End Role="PlanProducts" Type="Self.PlanProducts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Plans">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PlanProducts">
+        <PropertyRef Name="PlanId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PlanProductsProduct">
+    <End Role="Products" Type="Self.Products" Multiplicity="1" />
+    <End Role="PlanProducts" Type="Self.PlanProducts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PlanProducts">
+        <PropertyRef Name="Product_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductPart_Part">
+    <End Role="Parts" Type="Self.Parts" Multiplicity="1" />
+    <End Role="ProductPart" Type="Self.ProductPart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Parts">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProductPart">
+        <PropertyRef Name="Parts_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductPart_Product">
+    <End Role="Products" Type="Self.Products" Multiplicity="1" />
+    <End Role="ProductPart" Type="Self.ProductPart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProductPart">
+        <PropertyRef Name="Products_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="PlanStoreContainer">
+    <EntitySet Name="Materials" EntityType="Self.Materials" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PartMaterial" EntityType="Self.PartMaterial" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Parts" EntityType="Self.Parts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PlanProducts" EntityType="Self.PlanProducts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Plans" EntityType="Self.Plans" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductPart" EntityType="Self.ProductPart" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_PartMaterial_Material" Association="Self.FK_PartMaterial_Material">
+      <End Role="Materials" EntitySet="Materials" />
+      <End Role="PartMaterial" EntitySet="PartMaterial" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PartMaterial_Part" Association="Self.FK_PartMaterial_Part">
+      <End Role="Parts" EntitySet="Parts" />
+      <End Role="PartMaterial" EntitySet="PartMaterial" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PlanPlanProducts" Association="Self.FK_PlanPlanProducts">
+      <End Role="Plans" EntitySet="Plans" />
+      <End Role="PlanProducts" EntitySet="PlanProducts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PlanProductsProduct" Association="Self.FK_PlanProductsProduct">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="PlanProducts" EntitySet="PlanProducts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductPart_Part" Association="Self.FK_ProductPart_Part">
+      <End Role="Parts" EntitySet="Parts" />
+      <End Role="ProductPart" EntitySet="ProductPart" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductPart_Product" Association="Self.FK_ProductPart_Product">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="ProductPart" EntitySet="ProductPart" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

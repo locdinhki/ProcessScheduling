@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SupplyProFacility.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="SupplyProFacilityStoreContainer">
+    <EntitySet Name="Lines" EntityType="SupplyProFacility.Store.Lines" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="WorkStations" EntityType="SupplyProFacility.Store.WorkStations" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Equipments" EntityType="SupplyProFacility.Store.Equipments" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="LineWorkStation" Association="SupplyProFacility.Store.LineWorkStation">
+      <End Role="Line" EntitySet="Lines" />
+      <End Role="WorkStation" EntitySet="WorkStations" />
+    </AssociationSet>
+    <AssociationSet Name="WorkStationEquipment" Association="SupplyProFacility.Store.WorkStationEquipment">
+      <End Role="WorkStation" EntitySet="WorkStations" />
+      <End Role="Equipment" EntitySet="Equipments" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Lines">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="WorkStations">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LineId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Equipments">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CycleTime" Type="time" Nullable="false" />
+    <Property Name="ProductionRunTime" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ProductionCapacity" Type="int" Nullable="false" />
+    <Property Name="RunCapacity" Type="int" Nullable="false" />
+    <Property Name="FirstPassYield" Type="int" Nullable="false" />
+    <Property Name="ChangeOrderTime" Type="time" Nullable="false" />
+    <Property Name="ProductionLine" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="DownTime" Type="datetime" Nullable="true" />
+    <Property Name="WorkStationId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="LineWorkStation">
+    <End Role="Line" Type="SupplyProFacility.Store.Lines" Multiplicity="1" />
+    <End Role="WorkStation" Type="SupplyProFacility.Store.WorkStations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Line">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="WorkStation">
+        <PropertyRef Name="LineId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="WorkStationEquipment">
+    <End Role="WorkStation" Type="SupplyProFacility.Store.WorkStations" Multiplicity="1" />
+    <End Role="Equipment" Type="SupplyProFacility.Store.Equipments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WorkStation">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Equipment">
+        <PropertyRef Name="WorkStationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

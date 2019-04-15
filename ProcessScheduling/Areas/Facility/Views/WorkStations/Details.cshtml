@@ -1,0 +1,70 @@
+﻿@model ProcessScheduling.Models.WorkStation
+
+@{
+    ViewBag.Title = "WorkStation Details";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div>
+    <h4>WorkStation</h4>
+    <hr />
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Line.Name)
+        </dt>
+
+        <dd>
+            <a href="~/Facility/Lines/Details/@Html.DisplayFor(model => model.LineId)">@Html.DisplayFor(model => model.Line.Name)</a>
+        </dd>
+
+    </dl>
+
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+<div>
+    <h4>Equipments</h4>
+    <table class="table">
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Cycle Time(seconds)</th>
+        </tr>
+
+        @foreach (ProcessScheduling.Models.Equipment item in ViewBag.equipments)
+        {
+        <tr>
+            <td>
+                <a href="~/Facility/Equipments/Details/@item.Id">@item.Name</a>
+            </td>
+            <td>
+                @item.Description
+            </td>
+            <td>
+                @string.Format("{0:0.00}", ProcessScheduling.Utils.Utils.GetCycleTime(item))
+            </td>
+        </tr>
+        }
+    </table>
+</div>

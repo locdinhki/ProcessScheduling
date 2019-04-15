@@ -1,0 +1,98 @@
+﻿@model IEnumerable<ProcessScheduling.Models.Equipment>
+
+@{
+    ViewBag.Title = "Equipments";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Code)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductionRunTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductionCapacity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RunCapacity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstPassYield)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ChangeOrderTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductionLine)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DownTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OperatorCount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WorkStation.Name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.ActionLink(item.Code, "Details", new { id = item.Id })
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductionRunTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductionCapacity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RunCapacity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FirstPassYield)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ChangeOrderTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductionLine)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DownTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OperatorCount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WorkStation.Name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+        </td>
+    </tr>
+}
+
+</table>

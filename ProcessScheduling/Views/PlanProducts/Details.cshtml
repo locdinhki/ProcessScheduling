@@ -1,0 +1,61 @@
+﻿@model ProcessScheduling.Models.PlanProduct
+
+@{
+    ViewBag.Title = "PlanProduct Details";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>Plan</dt>
+        <dd>
+            @Html.DisplayFor(model => model.Plan.Name)
+        </dd>
+        <dt>Product Code</dt>
+        <dd>
+            @Html.DisplayFor(model => model.Product.Code)
+        </dd>
+        <dt>Product Name</dt>
+        <dd>
+            @Html.DisplayFor(model => model.Product.Name)
+        </dd>
+        <dt>Production Target</dt>
+        <dd>@Html.DisplayFor(model => model.TargetNumber)</dd>
+
+    </dl>
+</div>
+<p>
+    <a href="@Url.Action("Edit", "PlanProducts", new { id = Model.Id})" class="btn btn-info btn-sm">Edit</a> |
+    <a href="@Url.Action("Index", "PlanProducts")" class="btn btn-default btn-sm">Back to PlanProducts</a>
+</p>
+
+<div>
+    <h4>Parts List</h4>
+    <table class="table">
+        <tr>
+            <th class="col-md-1">Code</th>
+            <th class="col-md-2">Name</th>
+            <th>Description</th>
+        </tr>
+
+        @foreach (var item in ViewBag.productParts)
+        {
+            <tr>
+                <td>
+                    <a href="@Url.Action("Details", "Parts", new { area = "Product", id = item.Id})" class="btn btn-default btn-sm">@item.Code</a>
+                </td>
+                <td>
+                    @item.Name
+                </td>
+                <td>
+                    @item.Description
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+<div>
+    <a href="@Url.Action("Delete", "PlanProducts", new { id = Model.Id})" class="btn btn-danger btn-sm">Delete PlanProduct</a>
+</div>
