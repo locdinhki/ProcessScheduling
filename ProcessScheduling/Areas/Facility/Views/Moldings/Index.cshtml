@@ -18,7 +18,7 @@
             @Html.DisplayNameFor(model => model.Name)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Desciption)
+            @Html.DisplayNameFor(model => model.Description)
         </th>
         <th>Part</th>
         <th></th>
@@ -34,7 +34,7 @@
                 @item.Name
             </td>
             <td>
-                @item.Desciption
+                @item.Description
             </td>
             <td>
                 <a href="@Url.Action("Details", "Parts", new { area = "Product", id = item.Id})" class="btn btn-default btn-sm">@item.Part.Code</a>

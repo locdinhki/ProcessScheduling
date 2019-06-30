@@ -59,7 +59,7 @@ namespace ProcessScheduling.Areas.Facility.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,PartId,Code,Name,Desciption")] Molding molding)
+        public ActionResult Create([Bind(Include = "Id,PartId,Code,Name,Description")] Molding molding)
         {
             if (ModelState.IsValid)
             {
@@ -93,7 +93,7 @@ namespace ProcessScheduling.Areas.Facility.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,PartId,Code,Name,Desciption")] Molding molding)
+        public ActionResult Edit([Bind(Include = "Id,PartId,Code,Name,Description")] Molding molding)
         {
             if (ModelState.IsValid)
             {

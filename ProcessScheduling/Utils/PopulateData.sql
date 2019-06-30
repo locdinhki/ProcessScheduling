@@ -21,9 +21,9 @@ SET IDENTITY_INSERT Supply.dbo.Products ON
 INSERT INTO [Supply].[dbo].[Products]
 ([Id], [Code], [Name], [Description])
 VALUES
-(1,'162041-00000024', 'SH162041 替换装组合',  ''),
-(2,'162041-00000025', 'SH162041 盖底组合(盖前扣GA烫亮', ''),
-(3,'162041-00000026', 'SH162041 盖底组合(盖前扣GA烫亮', '')
+(1,'162041-00000024', N'SH162041 替换装组合',  ''),
+(2,'162041-00000025', N'SH162041 盖底组合(盖前扣GA烫亮', ''),
+(3,'162041-00000026', N'SH162041 盖底组合(盖前扣GA烫亮', '')
 SET IDENTITY_INSERT Supply.dbo.Products OFF
 
 INSERT INTO [Supply].[dbo].[ProductPart]
@@ -111,6 +111,14 @@ VALUES
 (3	,'Coat',	'Coating'),
 (4	,'Assembly',	'Assembly')
 SET IDENTITY_INSERT [Supply].[dbo].[EquipmentCategories] OFF
+
+SET IDENTITY_INSERT [Supply].[dbo].[Moldings] ON
+INSERT INTO [Supply].[dbo].[Moldings]
+([Id],[PartId],[Code],[Name],[Description])
+VALUES
+(1,1,'001','Part 1 Molding1','Part 1 Molding1 desc'),
+(2,1,'002','Part 1 Molding2','Part 1 Molding2 desc')
+SET IDENTITY_INSERT [Supply].[dbo].[Moldings] OFF
 
 INSERT INTO [Supply].[dbo].[MoldingEquipmentCategory]
 ([Moldings_Id],[EquipmentCategories_Id])
