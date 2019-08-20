@@ -233,7 +233,7 @@
     <Property Name="PartId" Type="int" Nullable="false" />
     <Property Name="Code" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Desciption" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="true" />
   </EntityType>
   <EntityType Name="EquipmentSpecifications">
     <Key>
@@ -887,7 +887,7 @@
           <Property Name="Code" Type="String" Nullable="false" />
           <NavigationProperty Name="Part" Relationship="SupplyModel.PartMolding" FromRole="Molding" ToRole="Part" />
           <Property Name="Name" Type="String" Nullable="false" />
-          <Property Name="Desciption" Type="String" Nullable="true" />
+          <Property Name="Description" Type="String" Nullable="true" />
           <NavigationProperty Name="EquipmentSpecifications" Relationship="SupplyModel.MoldingEquipmentSpecification" FromRole="Molding" ToRole="EquipmentSpecification" />
           <NavigationProperty Name="EquipmentCategories" Relationship="SupplyModel.MoldingEquipmentCategory" FromRole="Molding" ToRole="EquipmentCategory" />
         </EntityType>
@@ -1131,7 +1131,7 @@
           <ScalarProperty Name="PartId" ColumnName="PartId" />
           <ScalarProperty Name="Code" ColumnName="Code" />
           <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Desciption" ColumnName="Desciption" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

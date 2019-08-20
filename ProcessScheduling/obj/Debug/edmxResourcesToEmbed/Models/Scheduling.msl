@@ -127,7 +127,7 @@
           <ScalarProperty Name="PartId" ColumnName="PartId" />
           <ScalarProperty Name="Code" ColumnName="Code" />
           <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Desciption" ColumnName="Desciption" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

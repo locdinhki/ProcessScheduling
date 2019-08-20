@@ -273,7 +273,7 @@ CREATE TABLE [dbo].[Moldings] (
     [PartId] int  NOT NULL,
     [Code] nvarchar(max)  NOT NULL,
     [Name] nvarchar(max)  NOT NULL,
-    [Desciption] nvarchar(max)  NULL
+    [Description] nvarchar(max)  NULL
 );
 GO
 

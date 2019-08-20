@@ -228,7 +228,7 @@
     <Property Name="PartId" Type="int" Nullable="false" />
     <Property Name="Code" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Desciption" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="true" />
   </EntityType>
   <EntityType Name="EquipmentSpecifications">
     <Key>
